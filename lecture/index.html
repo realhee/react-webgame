@@ -14,10 +14,17 @@
             class LikeButton extends React.Component {
                 constructor(props) {
                     super(props);
+                    this.state = {
+                        liked: false,
+                    };
                 }
 
                 render() { // 컴포넌트를 만들'겠'다. (만든다 X)
-                    return e('button', null, 'Like'); // <button>Like</button>
+                    return e('button', { onClick: () => { this.setState({ liked: true })}, type: 'submit' },
+                    this.state.liked === true ? 'Liked' : 'Like',
+                    ); // <button>Like</button>
+                    // 두 번째 인자에 attributes를 넣는다.
+                    // onClick처럼 카멜 형태로 적는다.
                 }
             }
         </script>
